@@ -1,0 +1,59 @@
+/* General layout for the app */
+
+:root {
+  --body-color-odd: #d8f3ff;
+  --body-color-even: #FFFFFF;
+  --body-color-blend: color-mix(in srgb,var(--body-color-odd),var(--body-color-even))
+}
+
+.hero_app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+.navbar {
+position: sticky;
+top: 0;
+z-index: 1000;
+background-color: white;
+border-bottom: 1px solid #ddd;
+padding: 10px;
+}
+
+.content-layout {
+display: flex;
+flex: 1;
+}
+
+.table-of-contents {
+width: 250px; /* Adjust as needed */
+min-width: 200px;
+padding: 20px;
+border-right: 1px solid #ddd;
+position: sticky;
+top: 60px; /* Adjust for navbar height */
+height: calc(100vh - 60px); /* Full height minus navbar height */
+overflow-y: auto;
+}
+
+.main-content {
+flex: 1;
+padding: 0px;
+overflow-y: auto;
+}
+
+.main-content .body:nth-child(even) {
+  background-image: linear-gradient(var(--body-color-blend),var(--body-color-even) 10%,var(--body-color-even) 90%,var(--body-color-blend));
+}
+
+.main-content .body:nth-child(odd) {
+  background-image: linear-gradient(var(--body-color-blend),var(--body-color-odd) 10%,var(--body-color-odd) 90%,var(--body-color-blend));
+}
+
+.main-content .body {
+  padding: 0px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 0px;
+}
